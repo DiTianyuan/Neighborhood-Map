@@ -1,0 +1,148 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    font-family: Arial, sans-serif;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: auto;
+}
+
+h1 {
+    color: black;
+    font-size: 24px;
+    margin: 0 0 10px 0;
+    text-align: center;
+}
+
+input {
+    font-size: 14px;
+}
+
+.options-box {
+    box-sizing: border-box;
+    background: gray;
+    border: 1px solid #999;
+    border-radius: 3px;
+    height: 100%;
+    /*height: auto;*/
+    line-height: 35px;
+    padding: 10px 10px 30px 10px;
+    text-align: left;
+}
+
+#places-input-box {
+    width: 75%;
+}
+
+#places-filter-button {
+    width: 22%;
+}
+
+#places-list {
+    padding-left: 10px;
+}
+
+.place {
+    list-style: none;
+    font-size: 16px;
+}
+
+.main-view {
+    width: 100%;
+    height: 100%;
+}
+
+.navigation-bar {
+    background: gray;
+    height: 50px;
+    width: 100%;
+    top: 0px;
+    right: 0px;
+}
+
+.header__menu {
+    display: inline-block;
+    left: 0;
+    padding: 1em;
+}
+
+.header__menu svg {
+    width: 22px;
+    fill: #E0E0E0;
+}
+
+#map {
+    bottom: 0px;
+    height: calc(100% - 50px);
+    right: 0px;
+    width: 100%;
+}
+
+[data-icon]:before {
+  font-family: icons;
+  content: attr(data-icon);
+  speak: none;
+}
+
+/*屏幕宽度≤850*/
+@media screen and (max-width: 850px) {
+    .options-box {
+        z-index: 10;
+        width: 300px;
+        position: absolute;
+        -webkit-transform: translate(-300px, 0);
+        transform: translate(-300px, 0);
+        transition: transform 0.3s ease;
+    }
+
+    .options-box.open {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+}
+
+/*屏幕宽度＞850*/
+@media screen and (min-width: 851px) {
+    .options-box {
+        width: 25%;
+    }
+
+    .main-view {
+        width: 75%;
+    }
+}
+
+/*移动设备*/
+@media screen and (max-device-width: 1024px) {
+    .options-box {
+        z-index: 10;
+        width: 200px;
+        position: absolute;
+        -webkit-transform: translate(-200px, 0);
+        transform: translate(-200px, 0);
+        transition: transform 0.3s ease;
+    }
+
+    .options-box.open {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+
+    .main-view {
+        width: 100%;
+    }
+}
